@@ -1,20 +1,16 @@
 <h3>Edycja notatki</h3>
 <div>
-    <form action="/?action=edit" class="note-form" method="post">
-        <ul>
-            <li>
-                <label for="title">Tytuł <span class="required"></span></label>
-                <input type="text" name="title" id="title" class="field-long">
-</li>
-<li>
-    <label for="field5">Treść</label>
-    <textarea name="description" id="field5" class="field-long field-textarea"></textarea>
-</li>
-<li>
-    <input type="submit" value="Submit">
-</li>
-</ul>
-</form>
+<?php 
+    $note = $params['note'] ?>
+    <?php if (!empty($params['note'])) : ?>
+        <form action ="/action=edit" class="note-form" method="post">
+            <input type="text" name="id" value="<?php echo $note['id'] ?>" hidden />
+            <ul>
+                <li>
+                    <label for="title">Tytuł<span class="required"></span></label>
+                    <input type="text" name="title" id="title" class="field-long" value="<?php echo $note['title'] ?>">
+                </li>
+            </ul>
 </div>
 
 
